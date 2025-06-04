@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panel Administrativo</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <header>
+    <h1>Panel Administrativo - FixMyShoes</h1>
+    <button id="logoutBtn">Cerrar Sesión</button>
+  </header>
+
+  <nav id="menuAdmin">
+    <button data-section="usuarios" class="active">Usuarios</button>
+    <button data-section="clientes">Clientes</button>
+    <button data-section="productos">Productos</button>
+    <button data-section="facturas">Facturas</button>
+    <button data-section="detalles">Detalles de Facturas</button>
+  </nav>
+
+  <main>
+    <section id="usuarios" class="admin-section active"></section>
+    <section id="clientes" class="admin-section"></section>
+    <section id="productos" class="admin-section"></section>
+    <section id="facturas" class="admin-section"></section>
+    <section id="detalles" class="admin-section"></section>
+  </main>
+
+  <!-- Modal formulario -->
+  <div id="modalForm" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span id="closeModal" style="cursor:pointer; float:right;">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <form id="formAdmin">
+        <!-- Aquí se inyectan inputs dinámicamente -->
+      </form>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

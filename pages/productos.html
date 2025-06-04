@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Productos - FIX MY SHOES</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+
+    <header>
+        <figure class="logo">
+            <img src="../img/FIXMYSHOES.png" alt="FIX MY SHOES Logo" />
+        </figure>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html" class="active">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <button id="menuToggle" class="menu-toggle">&#9776;</button>
+            </ul>
+        </nav>
+        <div class="auth-buttons" id="authButtons">
+            <a href="login.html" class="btn-auth">Iniciar Sesión</a>
+            <a href="registro.html" class="btn-auth">Registrarse</a>
+        </div>
+        <div class="logout-button" id="logoutButton" style="display: none;">
+            <a href="carrito.html" class="btn-auth">🛒 Ver Carrito</a>
+            <button class="btn-auth" onclick="cerrarSesion()">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 2rem; max-width: 1200px; margin: auto;">
+        <h1>Productos Disponibles</h1>
+        <section id="productosGrid" class="productos-grid">
+            <!-- Aquí se cargarán dinámicamente los productos -->
+        </section>
+    </main>
+
+    <!-- Modal para producto -->
+    <div id="modalProducto" class="modal">
+        <div class="modal-content">
+            <span id="modalCerrar" class="close">&times;</span>
+            <img id="modalImagen" src="" alt="Imagen producto" />
+            <h2 id="modalNombre"></h2>
+            <p id="modalDescripcion"></p>
+            <p id="modalPrecio"></p>
+            <button id="modalAgregarCarrito">Agregar al carrito</button>
+        </div>
+    </div>
+
+    <script src="../productos.js"></script>
+</body>
+
+</html>

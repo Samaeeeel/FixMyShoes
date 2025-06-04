@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nosotros - Cosedora de Calzado</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+
+    <header>
+        <figure class="logo">
+            <img src="../img/FIXMYSHOES.png" alt="Cosedora de Calzado" />
+        </figure>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html" class="active">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <button id="menuToggle" class="menu-toggle">
+                    &#9776;
+                </button>
+            </ul>
+        </nav>
+        <div class="auth-buttons" id="authButtons">
+            <a href="login.html" class="btn-auth">Iniciar Sesión</a>
+            <a href="registro.html" class="btn-auth">Registrarse</a>
+        </div>
+        <div class="logout-button" id="logoutButton" style="display: none;">
+            <a href="carrito.html" class="btn-auth">🛒 Ver Carrito</a>
+            <button class="btn-auth" onclick="cerrarSesion()">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-us" style="padding: 2rem; max-width: 900px; margin: auto;">
+            <h1>FIX MY SHOES</h1>
+            <h2>Sobre Nosotros</h2>
+            <p>
+                Somos una empresa dedicada a la reparación y restauración de calzado y accesorios.
+                Contamos con años de experiencia y un equipo profesional que garantiza calidad y confianza en cada
+                servicio.
+            </p>
+            <p>
+                Nuestro compromiso es brindar soluciones duraderas y un excelente servicio al cliente, usando materiales
+                de primera calidad y técnicas tradicionales.
+            </p>
+            <p>
+                Visítanos y conoce por qué somos la mejor opción para cuidar y restaurar tus zapatos y accesorios
+                favoritos.
+            </p>
+        </section>
+
+        <section class="video-section container">
+            <h2>Conoce Nuestra Empresa</h2>
+            <div class="video-wrapper">
+                <iframe src="../img/Cosedora de Calzado.mp4" title="Video Corporativo" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <script src="../nosotros.js"></script>
+</body>
+
+</html>

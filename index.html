@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosedora de Calzado</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <figure class="logo">
+      <img src="img/FIXMYSHOES.png" alt="Cosedora de Calzado">
+    </figure>
+    <nav class="main-nav">
+      <div id="bienvenida" class="bienvenida-usuario"></div>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="pages/productos.html">Productos</a></li>
+        <li><a href="pages/nosotros.html">Nosotros</a></li>
+        <button id="menuToggle" class="menu-toggle" aria-label="Menú">
+          &#9776; <!-- Icono hamburguesa -->
+        </button>
+      </ul>
+    </nav>
+    <div class="auth-buttons" id="authButtons">
+      <a href="pages/login.html" class="btn-auth">Iniciar Sesión</a>
+      <a href="pages/registro.html" class="btn-auth">Registrarse</a>
+    </div>
+    <div class="logout-button" id="logoutButton" style="display: none;">
+      <a href="pages/carrito.html" class="btn-auth">🛒 Ver Carrito</a>
+      <button class="btn-auth" onclick="cerrarSesion()">Cerrar Sesión</button>
+    </div>
+  </header>
+
+
+  <main>
+    <section class="carousel next">
+      <div class="list">
+
+      </div>
+      <div class="arrows">
+        <button id="prev"></button>
+        <button id="next">></button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+
+</html>

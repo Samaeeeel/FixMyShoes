@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registrarse - Cosedora de Calzado</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+
+  <header>
+    <figure class="logo">
+      <img src="../img/FIXMYSHOES.png" alt="Cosedora de Calzado" />
+    </figure>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../index.html" class="active">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="auth-container">
+    <section class="register-form">
+      <h1>Crear una Cuenta</h1>
+      <form id="registroForm">
+        <h3>Datos de usuario</h3>
+        <input type="text" id="nombre" placeholder="Nombre" required />
+        <input type="email" id="correo" placeholder="Correo" required />
+        <input type="password" id="password" placeholder="Contraseña" required />
+
+        <h3>Datos de cliente</h3>
+        <input type="text" id="apellido" placeholder="Apellido" required />
+        <input type="text" id="cedula" placeholder="Cédula o RUC" required />
+        <input type="text" id="telefono" placeholder="Teléfono" required />
+        <input type="text" id="direccion" placeholder="Dirección" required />
+        <input type="date" id="nacimiento" placeholder="Fecha de Nacimiento" required />
+
+        <button type="submit">Registrarse</button>
+      </form>
+
+      <p class="redirect-text">
+        ¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a>
+      </p>
+    </section>
+  </main>
+  <script src="../login.js"></script>
+</body>
+
+</html>

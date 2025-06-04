@@ -1,0 +1,884 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aboreto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+    font-family: 'Aboreto';
+    margin: 0;
+    font-size: 16px;
+    background-color: #ebd3b7;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+:root{
+    --border-color: #fff5;
+    --w-image: 500px;
+    --calculate: calc(3 / 2);
+}
+header{
+    display: grid;
+    grid-template-columns: 80px 1fr calc(var(--w-image) * var(--calculate));
+    grid-template-rows: 80px;
+    position: relative;
+    z-index: 10;
+    border-bottom: 1px solid var(--border-color);
+}
+header .logo img{
+    width: 80px;
+}
+header .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header nav a{
+    color: #000;
+    font-weight: 400;
+}
+header nav ul{
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 30px;
+    padding-right: 30px;
+}
+header nav{
+    border-left: 1px solid var(--border-color);
+}
+.carousel{
+    margin-top: -80px;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.carousel .list{
+    height: 100%;
+    position: relative;
+}
+.carousel .list::before{
+    position: absolute;
+    width: var(--w-image);
+    height: 100%;
+    content: '';
+    top: 0;
+    left: calc(100% - calc(var(--w-image) * var(--calculate)));
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    z-index: 10;
+    pointer-events: none;
+}
+.carousel .list::after{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    content: '';
+    background-color: red;
+    width: 400px;
+    height: 300px;
+    z-index: 10;
+    pointer-events: none;
+    border-radius: 20px  50px 110px  230px;
+    filter: blur(150px);
+    opacity: .6;
+}
+.carousel .list .item{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.carousel .list .item .image{
+    width: var(--w-image);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: calc(100% - calc(var(--w-image) * var(--calculate)));
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    font-weight: 500;
+}
+.carousel .list .item .image img{
+    width: 90%;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 150px 50px #9e0c0c55);
+}
+.carousel .list .item .image figcaption{
+    font-family: 'Aboreto';
+    font-weight: bold;
+    font-size: 1.3em;
+    text-align: right;
+    margin-bottom: 30px;
+    width: 70%;
+}
+.carousel .list .item .main-content{
+    height: 100%;
+    display: grid;
+    grid-template-columns: calc(100% - calc(var(--w-image) * var(--calculate)));
+}
+.carousel .list .item .main-content .content{
+    padding: 150px 20px  20px 80px;
+}
+.carousel .list .item .main-content .content h2{
+    font-size: 5em;
+    font-family: 'Aboreto';
+}
+.carousel .list .item .main-content .content .price{
+    font-family: 'Aboreto';
+    font-size: 3em;
+    margin: 20px 0;
+}
+.carousel .list .item .main-content .content .addToCard{
+    background-color: #4f8b69;
+    color: #fff;
+    padding: 10px  30px;
+    font-family: 'Aboreto';
+    font-size: large;
+    font-weight: 500;
+    border-radius: 30px;
+    border: none;
+    margin-top: 20px;
+}
+.arrows{
+    position: absolute;
+    bottom: 20px;
+    width: calc(100% - calc(var(--w-image) * var(--calculate)));
+    display: grid;
+    grid-template-columns: repeat(2, 50px);
+    grid-template-rows: 50px;
+    justify-content: end;
+    gap: 10px;
+}
+.arrows button{
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: #fff;
+    font-family: monospace;
+    font-size: large;
+    font-weight: bold;
+    line-height: 0;
+    box-shadow: 0 10px 40px #5555;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.arrows button:hover{
+    background-color: #eee5;
+}
+.carousel .list .item{
+    display: none;
+}
+.carousel .list .item.active,
+.carousel .list .item.other_1,
+.carousel .list .item.other_2{
+    display: block;
+}
+.carousel .list .item.active{
+    z-index: 2;
+}
+.carousel .list .item.other_1,
+.carousel .list .item.other_2{
+    pointer-events: none;
+}
+.carousel .list .item.active .main-content{
+    animation: showContent 1s ease-in-out 1 forwards;
+}
+@keyframes showContent{
+    from{
+        clip-path: circle(0% at 70% 50%);
+    }to{
+        clip-path: circle(100% at 70% 50%);
+    }
+}
+.next .item.other_1{
+    z-index: 1;
+}
+.next .item .image img,
+.next .item .image figcaption{
+    animation: effectNext .5s ease-in-out 1 forwards;
+}
+@keyframes effectNext{
+    from{
+        transform: translateX(calc(var(--transform-from)));
+    }to{
+        transform: translateX(calc(var(--transform-from) - var(--w-image)));
+    }
+}
+.next .item.active .image{
+    --transform-from: var(--w-image);
+}
+.next .item.other_1 .image{
+    z-index: 3;
+    --transform-from: 0px;
+    overflow: hidden;
+}
+.next .item.other_2 .image{
+    z-index: 3;
+    --transform-from: calc(var(--w-image) * 2);
+}
+.arrows{
+    z-index: 10;
+}
+/* prev */
+.prev .list .item .image img,
+.prev .list .item .image figcaption{
+    animation: effectPrev 0.5s ease-in-out 1 forwards;
+}
+@keyframes effectPrev{
+    from{
+        transform: translateX(calc(var(--transform-from)));
+    }to{
+        transform: translateX(calc(var(--transform-from) + var(--w-image)));
+    }
+}
+.prev .list .item.active .image{
+    --transform-from: calc(var(--w-image) * -1);
+    overflow: hidden;
+}
+.prev .list .item.other_1 .image{
+    --transform-from: 0px;
+    z-index: 3;
+}
+.prev .list .item.other_2 .image{
+    z-index: 3;
+    --transform-from: var(--w-image);
+}
+.prev .list .item.other_2 .main-content{
+    opacity: 0;
+}
+@media screen and (max-width: 1023px){
+    :root{
+        --calculate: 1;
+        --w-image: 400px; 
+    }
+    .carousel .list .item .main-content .content h2{
+        font-size: 3em;
+    }
+}
+@media screen and (max-width: 767px){
+    .carousel .list .item .image{
+        width: 100%;
+        left: 0;
+        justify-content: center;
+    }
+    .carousel .list .item .image figcaption{
+        color: #fff;
+        width: 100%;
+        text-align: center;
+    }
+    .carousel .list .item .main-content .content{
+        display: none;
+    }
+    .arrows{
+        left: 50%;
+        justify-content: center;
+    }
+}
+
+/*NOSOTROS*/
+/* Contenedor general para sección con máximo ancho y centrado */
+.container {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+/* Estilo sección Sobre Nosotros */
+.about-us {
+    background: #f3f0e7;  /* color suave */
+    padding: 2rem 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
+    font-size: 1.125rem;
+    color: #4b3a2f;
+    line-height: 1.6;
+}
+
+/* Títulos */
+.about-us h1,
+.video-section h2 {
+    font-family: 'Aboreto', cursive;
+    color: #8b5e3c;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Sección de video */
+.video-section {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+/* Contenedor responsivo para video */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* proporción 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    max-width: 100%;
+    margin: auto;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Responsive: Ajustes móviles */
+@media screen and (max-width: 500px) {
+    .about-us {
+        font-size: 1rem;
+        padding: 1.5rem 1.5rem;
+    }
+    .about-us h1, .video-section h2 {
+        font-size: 2rem;
+    }
+}
+
+/*Inicio y Registro de usuario*/
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-left: auto; /* para separar del nav */
+}
+
+.auth-buttons a.btn-auth {
+    background-color: #a67843;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+.auth-buttons a.button:hover {
+    background-color: #8b5e3c;
+}
+
+.auth-container {
+  max-width: 400px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+
+.login-form, .register-form {
+  background: #f3f0e7;
+  padding: 2rem 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
+  color: #4b3a2f;
+}
+
+.auth-container h1 {
+  font-family: 'Aboreto', cursive;
+  text-align: center;
+  color: #8b5e3c;
+  margin-bottom: 1.5rem;
+}
+
+.auth-container form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.auth-container form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.auth-container form button {
+  margin-top: 2rem;
+  width: 100%;
+  background-color: #a67843;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-container form button:hover {
+  background-color: #8b5e3c;
+}
+
+.redirect-text {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #5a4a3a;
+}
+
+.redirect-text a {
+  color: #a67843;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.redirect-text a:hover {
+  text-decoration: underline;
+}
+
+/*MENU DE HAMBURGUESA*/
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #a67843;
+  margin-left: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .auth-buttons,
+  .logout-button {
+    display: none; /* ocultar botones en móvil */
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* justo debajo del header */
+    right: 10px;
+    background-color: #f3f0e7;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 1000;
+  }
+  .auth-buttons,
+  .logout-button {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block; /* mostrar botón hamburguesa en móvil */
+  }
+}
+
+/*bienvenida usuario*/
+.bienvenida-usuario {
+  color: #4f3a28;
+  font-weight: bold;
+  font-family: 'Aboreto', cursive;
+  margin-left: 2rem;
+  font-size: 1.1rem;
+}
+
+/*cerrar sesion*/
+
+.logout-button {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-left: auto; /* para separar del nav */
+}
+
+.logout-button .btn-auth,
+.logout-buttons button.btn-auth {
+    background-color: #a67843;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+    display: inline-block;
+    font-family: 'Aboreto';
+}
+.logout-button .button:hover
+.logout-button button.btn-auth:hover {
+    background-color: #8b5e3c;
+}
+
+/*carrito*/
+.titulo-carrito {
+  text-align: center;
+  margin-top: 1rem;
+  font-family: 'Aboreto', cursive;
+}
+
+.carrito-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.carrito-container > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.carrito-container > div > div {
+  flex: 1 1 300px; /* que crezca y encaje bien */
+  max-width: 400px;
+  padding: 1rem;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+  .carrito-container > div > div {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+.carrito-container img {
+  width: 80px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.carrito-container h3 {
+  flex: 1;
+  font-family: 'Aboreto', cursive;
+  margin: 0;
+}
+
+.carrito-container p {
+  margin: 0 1rem;
+  font-weight: 500;
+  font-family: 'Aboreto';
+}
+
+.carrito-container button {
+  background-color: #a67843;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carrito-container button:hover {
+  background-color: #8b5e3c;
+}
+
+.total {
+  max-width: 900px;
+  margin: 1rem auto;
+  font-family: 'Aboreto', cursive;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.botones-footer {
+  max-width: 900px;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.btn-seguir-comprando,
+.btn-comprar {
+  background-color: #4f8b69;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 20px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-family: 'Aboreto', cursive;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-seguir-comprando:hover,
+.btn-comprar:hover {
+  background-color: #3a664d;
+}
+
+/* Grid para productos en productos.html */
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+.producto-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.producto-card img {
+  max-width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.producto-nombre {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #4b3a2f;
+}
+
+.producto-descripcion {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.producto-precio {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #a67843;
+  margin-bottom: 1rem;
+}
+
+button.addToCartBtn {
+  background-color: #4f8b69;
+  border: none;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.addToCartBtn:hover {
+  background-color: #3a664d;
+}
+
+/* Modal para productos */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  overflow: auto;
+}
+
+.modal-content {
+  background-color: #f3f0e7;
+  margin: 5% auto;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content img {
+  max-width: 100%;
+  height: 250px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.modal-content h2 {
+  font-family: 'Aboreto', cursive;
+  color: #4b3a2f;
+  margin-bottom: 1rem;
+}
+
+.modal-content p {
+  color: #555;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.modal-content button {
+  background-color: #4f8b69;
+  border: none;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+  background-color: #3a664d;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #8b5e3c;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .productos-grid {
+    grid-template-columns: 1fr;
+    padding: 0 0.5rem;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 1rem;
+  }
+}
+
+/* Contenedor principal de la factura */
+#facturaContainer {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #4b3a2f;
+}
+
+/* Título de la factura */
+h1 {
+  font-family: 'Aboreto', cursive;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 1rem;
+  color: #8b5e3c;
+}
+
+/* Estilo para los datos de la factura */
+#facturaContainer p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+/* Etiquetas de los datos de la factura */
+#facturaContainer b {
+  font-weight: 700;
+  color: #4b3a2f;
+}
+
+/* Producto listado en la factura */
+#productosFactura {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f3f0e7;
+  border-radius: 8px;
+}
+
+#productosFactura table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+#productosFactura th, #productosFactura td {
+  padding: 0.8rem;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+#productosFactura th {
+  background-color: #8b5e3c;
+  color: #fff;
+}
+
+#productosFactura td {
+  background-color: #f9f9f9;
+}
+
+#productosFactura .total-row {
+  font-weight: bold;
+  background-color: #8b5e3c;
+  color: #fff;
+  text-align: right;
+}
+
+/* Botón para regresar a los productos */
+#regresarBtn {
+  display: block;
+  width: 200px;
+  margin: 2rem auto;
+  padding: 10px;
+  background-color: #4f8b69;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#regresarBtn:hover {
+  background-color: #3a664d;
+}
+
+#pagarBtn {
+  display: block;
+  width: 200px;
+  margin: 2rem auto;
+  padding: 10px;
+  background-color: #4f8b69;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#pagarBtn:hover {
+  background-color: #3a664d;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  #facturaContainer {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  #productosFactura table {
+    font-size: 1rem;
+  }
+}
