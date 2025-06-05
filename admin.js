@@ -197,8 +197,7 @@ function abrirFormularioProducto(id = null) {
           <label>Precio:<input type="number" step="0.01" name="prodPrecio" value="${p.prodPrecio}" required /></label><br/>
           <label>Stock:<input type="number" name="prodStock" value="${p.prodStock}" required /></label><br/>
           <label>Categoría:<input type="text" name="prodCategoria" value="${p.prodCategoria}" required /></label><br/>
-           <!-- Nuevo campo para proveedor -->
-    <label>Proveedor:<input type="text" name="prodProveedor" value="FIXMYSHOES" readonly /></label><br/>
+          <label>Proveedor:<input type="text" name="prodProveedor" value="FIXMYSHOES" readonly /></label><br/>
           <button type="submit">${id ? 'Guardar cambios' : 'Crear producto'}</button>
         `;
       });
