@@ -208,6 +208,7 @@ function abrirFormularioProducto(id = null) {
       <label>Precio:<input type="number" step="0.01" name="prodPrecio" required /></label><br/>
       <label>Stock:<input type="number" name="prodStock" required /></label><br/>
       <label>Categoría:<input type="text" name="prodCategoria" required /></label><br/>
+      <label>Proveedor:<input type="text" name="prodProveedor" value="FIXMYSHOES" readonly /></label><br/>
       <button type="submit">Crear producto</button>
     `;
   }
