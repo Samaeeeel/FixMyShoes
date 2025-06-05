@@ -64,7 +64,7 @@ async function confirmarCompra() {
 
   try {
     // Obtener cliente asociado al idUsuario del usuario logeado
-    const resCliente = await fetch(`http://fixmyshoesadmin.runasp.net/api/clientes`);
+    const resCliente = await fetch(`https://fixmyshoesadmin.runasp.net/api/clientes`);
     if (!resCliente.ok) throw new Error('Error al obtener clientes');
     const clientes = await resCliente.json();
 
@@ -93,7 +93,7 @@ async function confirmarCompra() {
     };
 
     // POST a la API de compra
-    const resCompra = await fetch('http://fixmyshoes.runasp.net/api/integracion/compra', {
+    const resCompra = await fetch('https://fixmyshoes.runasp.net/api/integracion/compra', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(compraData)

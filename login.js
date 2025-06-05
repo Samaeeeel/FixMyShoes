@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const password = document.getElementById('password').value;
 
             try {
-                const res = await fetch('http://fixmyshoesadmin.runasp.net/api/usuarios');
+                const res = await fetch('https://fixmyshoesadmin.runasp.net/api/usuarios');
                 const usuarios = await res.json();
 
                 const usuario = usuarios.find(u => u.correo === correo && u.password === password);
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             try {
-                const resUsuarios = await fetch('http://fixmyshoesadmin.runasp.net/api/usuarios');
+                const resUsuarios = await fetch('https://fixmyshoesadmin.runasp.net/api/usuarios');
                 const usuarios = await resUsuarios.json();
 
                 const existeCorreo = usuarios.some(u => u.correo.toLowerCase() === correo.toLowerCase());
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     rolNombre: "Cliente"
                 };
 
-                const res = await fetch('http://fixmyshoesadmin.runasp.net/api/usuarios', {
+                const res = await fetch('https://fixmyshoesadmin.runasp.net/api/usuarios', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(nuevoUsuario)
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     fechaNacimiento
                 };
 
-                const resCliente = await fetch('http://fixmyshoesadmin.runasp.net/api/clientes', {
+                const resCliente = await fetch('https://fixmyshoesadmin.runasp.net/api/clientes', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(nuevoCliente)

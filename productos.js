@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // API base URL
-const apiBaseUrl = 'http://fixmyshoesadmin.runasp.net';
+const apiBaseUrl = 'https://fixmyshoesadmin.runasp.net';
 
 // Función para crear y mostrar modal de producto
 function crearModalProducto(producto) {

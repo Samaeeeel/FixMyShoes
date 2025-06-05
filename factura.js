@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         // Recupera los detalles de la factura con la API usando el idFactura
-        const resFactura = await fetch(`http://fixmyshoesadmin.runasp.net/api/facturas/${idFactura}`);
+        const resFactura = await fetch(`https://fixmyshoesadmin.runasp.net/api/facturas/${idFactura}`);
         if (!resFactura.ok) throw new Error('Error al obtener la factura');
         const factura = await resFactura.json();
 
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Agregar el evento para el botón de "Pagar Factura"
     document.getElementById('pagarBtn').addEventListener('click', async () => {
         try {
-            const res = await fetch('http://fixmyshoesadmin.runasp.net/api/compraYTransacciones', {
+            const res = await fetch('https://fixmyshoesadmin.runasp.net/api/compraYTransacciones', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         next.click();
     }, 5000);
 
-    const apiBaseUrl = 'http://fixmyshoesadmin.runasp.net'; // o la URL directa de tu API
+    const apiBaseUrl = 'https://fixmyshoesadmin.runasp.net'; // o la URL directa de tu API
 
     async function obtenerYMostrarProductos() {
         try {

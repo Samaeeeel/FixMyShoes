@@ -1,6 +1,6 @@
 const sections = document.querySelectorAll('.admin-section');
 const menuButtons = document.querySelectorAll('#menuAdmin button');
-const apiBase = 'http://fixmyshoesadmin.runasp.net/api';
+const apiBase = 'https://fixmyshoesadmin.runasp.net/api';
 
 const modal = document.getElementById('modalForm');
 const closeModalBtn = document.getElementById('closeModal');
