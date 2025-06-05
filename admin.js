@@ -198,6 +198,7 @@ function abrirFormularioProducto(id = null) {
           <label>Stock:<input type="number" name="prodStock" min="0" value="${p.prodStock}" required /></label><br/>
           <label>Categoría:<input type="text" name="prodCategoria" value="${p.prodCategoria}" required /></label><br/>
           <label>Proveedor:<input type="text" name="prodProveedor" value="FIXMYSHOES" readonly /></label><br/>
+          <label>URL de la imagen:<input type="text" name="prodImagen" required /></label><br/>
           <button type="submit">${id ? 'Guardar cambios' : 'Crear producto'}</button>
         `;
       });
@@ -209,6 +210,7 @@ function abrirFormularioProducto(id = null) {
       <label>Stock:<input type="number" name="prodStock" required /></label><br/>
       <label>Categoría:<input type="text" name="prodCategoria" required /></label><br/>
       <label>Proveedor:<input type="text" name="prodProveedor" value="FIXMYSHOES" readonly /></label><br/>
+      <label>URL de la imagen:<input type="text" name="prodImagen" required /></label><br/>
       <button type="submit">Crear producto</button>
     `;
   }
@@ -437,6 +439,23 @@ formAdmin.onsubmit = async e => {
       if (!res.ok) return alert('Error creando producto');
       alert('Producto creado');
     }
+    const productoCreado = await resProducto.json();
+    const idProducto = productoCreado.idProducto;  // Obtén el id del producto recién creado o actualizado
+
+    // Ahora agregamos la imagen asociada al producto
+    const urlImagen = data.prodImagen; // La URL de la imagen
+
+    // Crear un registro en la tabla imagen
+    const resImagen = await fetch(`${apiBase}/imagen`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        idProducto, // Asociamos la imagen al producto creado
+        urlImagen   // Usamos la URL de la imagen proporcionada
+      })
+    });
+
+    if (!resImagen.ok) throw new Error('Error creando la imagen');
     modal.style.display = 'none';
     cargarDatos('productos');
   }
