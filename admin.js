@@ -195,7 +195,7 @@ function abrirFormularioProducto(id = null) {
           <label>Nombre:<input type="text" name="prodNombre" value="${p.prodNombre}" required /></label><br/>
           <label>Descripción:<input type="text" name="prodDescripcion" value="${p.prodDescripcion}" required /></label><br/>
           <label>Precio:<input type="number" step="0.01" name="prodPrecio" value="${p.prodPrecio}" required /></label><br/>
-          <label>Stock:<input type="number" name="prodStock" min="0" value="${p.prodStock}" required /></label><br/>
+          <label>Stock:<input type="number" name="prodStock" min="1" value="${p.prodStock}" required /></label><br/>
           <label>Categoría:<input type="text" name="prodCategoria" value="${p.prodCategoria}" required /></label><br/>
           <label>Proveedor:<input type="text" name="prodProveedor" value="FIXMYSHOES" readonly /></label><br/>
           <label>URL de la imagen:<input type="text" name="prodImagen" required /></label><br/>
