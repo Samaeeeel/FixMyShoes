@@ -436,6 +436,13 @@ formAdmin.onsubmit = async e => {
         alert('El stock no puede ser negativo.');
         return;
       }
+
+      // Verificar que el stock no sea negativo
+      if (data.prodStock < 0) {
+        alert('El stock no puede ser negativo.');
+        return;
+      }
+
       if (!res.ok) return alert('Error creando producto');
       alert('Producto creado');
     }
