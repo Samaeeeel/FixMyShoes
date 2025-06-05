@@ -23,7 +23,7 @@ closeModalBtn.onclick = () => {
   editId = null;
 };
 
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = 'none';
     formAdmin.innerHTML = '';
@@ -197,6 +197,8 @@ function abrirFormularioProducto(id = null) {
           <label>Precio:<input type="number" step="0.01" name="prodPrecio" value="${p.prodPrecio}" required /></label><br/>
           <label>Stock:<input type="number" name="prodStock" value="${p.prodStock}" required /></label><br/>
           <label>Categoría:<input type="text" name="prodCategoria" value="${p.prodCategoria}" required /></label><br/>
+           <!-- Nuevo campo para proveedor -->
+    <label>Proveedor:<input type="text" name="prodProveedor" value="FIXMYSHOES" readonly /></label><br/>
           <button type="submit">${id ? 'Guardar cambios' : 'Crear producto'}</button>
         `;
       });
@@ -326,7 +328,7 @@ function abrirFormularioCliente(id = null) {
           <label>Cédula/RUC:<input type="text" name="cedulaRuc" value="${c.cedulaRuc}" required /></label><br/>
           <label>Teléfono:<input type="text" name="telefono" value="${c.telefono}" required /></label><br/>
           <label>Dirección:<input type="text" name="direccion" value="${c.direccion}" required /></label><br/>
-          <label>Fecha de Nac.:<input type="date" name="fechaNacimiento" value="${c.fechaNacimiento?.slice(0,10)}" required /></label><br/>
+          <label>Fecha de Nac.:<input type="date" name="fechaNacimiento" value="${c.fechaNacimiento?.slice(0, 10)}" required /></label><br/>
           <button type="submit">${id ? 'Guardar cambios' : 'Crear cliente'}</button>
         `;
       });
