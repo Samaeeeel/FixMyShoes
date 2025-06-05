@@ -351,7 +351,7 @@ formAdmin.onsubmit = async e => {
   const data = Object.fromEntries(formData.entries());
 
   data.prodProveedor = 'FIXMYSHOES';
-  
+
 
   if (currentSection === 'usuarios') {
     if (editId) {
@@ -429,17 +429,16 @@ formAdmin.onsubmit = async e => {
           prodProveedor: data.prodProveedor // Incluir proveedor al crear
         })
       });
+      // Verificar que el stock no sea negativo
+      if (data.prodStock < 0) {
+        alert('El stock no puede ser negativo.');
+        return;
+      }
       if (!res.ok) return alert('Error creando producto');
       alert('Producto creado');
     }
     modal.style.display = 'none';
     cargarDatos('productos');
-  }
-
-  // Verificar que el stock no sea negativo
-  if (data.prodStock < 0) {
-    alert('El stock no puede ser negativo.');
-    return;
   }
 };
 
