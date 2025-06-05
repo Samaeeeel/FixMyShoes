@@ -195,7 +195,7 @@ function abrirFormularioProducto(id = null) {
           <label>Nombre:<input type="text" name="prodNombre" value="${p.prodNombre}" required /></label><br/>
           <label>Descripción:<input type="text" name="prodDescripcion" value="${p.prodDescripcion}" required /></label><br/>
           <label>Precio:<input type="number" step="0.01" name="prodPrecio" value="${p.prodPrecio}" required /></label><br/>
-          <label>Stock:<input type="number" name="prodStock" value="${p.prodStock}" required /></label><br/>
+          <label>Stock:<input type="number" name="prodStock" min="0" value="${p.prodStock}" required /></label><br/>
           <label>Categoría:<input type="text" name="prodCategoria" value="${p.prodCategoria}" required /></label><br/>
           <label>Proveedor:<input type="text" name="prodProveedor" value="FIXMYSHOES" readonly /></label><br/>
           <button type="submit">${id ? 'Guardar cambios' : 'Crear producto'}</button>
@@ -351,6 +351,7 @@ formAdmin.onsubmit = async e => {
   const data = Object.fromEntries(formData.entries());
 
   data.prodProveedor = 'FIXMYSHOES';
+  
 
   if (currentSection === 'usuarios') {
     if (editId) {
@@ -433,6 +434,12 @@ formAdmin.onsubmit = async e => {
     }
     modal.style.display = 'none';
     cargarDatos('productos');
+  }
+
+  // Verificar que el stock no sea negativo
+  if (data.prodStock < 0) {
+    alert('El stock no puede ser negativo.');
+    return;
   }
 };
 
