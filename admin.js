@@ -349,6 +349,8 @@ formAdmin.onsubmit = async e => {
   const formData = new FormData(formAdmin);
   const data = Object.fromEntries(formData.entries());
 
+  data.prodProveedor = 'FIXMYSHOES';
+
   if (currentSection === 'usuarios') {
     if (editId) {
       if (!data.password) delete data.password;
@@ -406,7 +408,8 @@ formAdmin.onsubmit = async e => {
           prodDescripcion: data.prodDescripcion,
           prodPrecio: parseFloat(data.prodPrecio),
           prodStock: parseInt(data.prodStock),
-          prodCategoria: data.prodCategoria
+          prodCategoria: data.prodCategoria,
+          prodProveedor: data.prodProveedor // Incluir proveedor al actualizar
         })
       });
       if (!res.ok) return alert('Error actualizando producto');
@@ -420,7 +423,8 @@ formAdmin.onsubmit = async e => {
           prodDescripcion: data.prodDescripcion,
           prodPrecio: parseFloat(data.prodPrecio),
           prodStock: parseInt(data.prodStock),
-          prodCategoria: data.prodCategoria
+          prodCategoria: data.prodCategoria,
+          prodProveedor: data.prodProveedor // Incluir proveedor al crear
         })
       });
       if (!res.ok) return alert('Error creando producto');
